@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace GestaoEquipamentos.ModuloAutenticacao
 {
-    internal class UsuarioModel
+    public class UsuarioModel
     {
+        public string Login { get; set; }
+        public string Senha { get; set; }
+
     }
 }
