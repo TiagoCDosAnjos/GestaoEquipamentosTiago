@@ -11,13 +11,17 @@ using System.Windows.Forms;
 
 namespace GestaoEquipamentos.ModuloAutenticacao
 {
+    //VIEW
     public partial class FormAutenticacaoView : Form
     {
+        //Controller
         AutenticadorController AutenticadorController { get; set; }
         public FormAutenticacaoView()
         {
             InitializeComponent();
             AutenticadorController = new AutenticadorController();
+
+            // dataGridView1.DataSource = AutenticadorController.ObterUsuarios();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -25,20 +29,20 @@ namespace GestaoEquipamentos.ModuloAutenticacao
             string login = txtLogin.Text;
             string senha = txtSenha.Text;
 
-            if (AutenticadorController.Autenticar(login, senha)) 
+            try
             {
-                Hide();
-                FormEquipamento equipamentosForm = new FormEquipamento();
-                equipamentosForm.ShowDialog();
-                Close();
+                if (AutenticadorController.Autenticar(login, senha))
+                {
+                    Hide();
+                    TelaPrincipalForm equipamentosForm = new TelaPrincipalForm();
+                    equipamentosForm.ShowDialog();
+                    Close();
+                }
             }
-            else
+            catch (Exception ex)
             {
-                toolStripStatusLabelInfo.Text = "Usuário ou senha invalidos!";
+                toolStripStatusLabelInfo.Text = ex.Message;
             }
-
-           
-
         }
     }
 }

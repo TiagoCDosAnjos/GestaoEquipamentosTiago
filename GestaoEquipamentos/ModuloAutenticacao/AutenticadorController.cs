@@ -1,8 +1,11 @@
 ﻿using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Authentication;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace GestaoEquipamentos.ModuloAutenticacao
 {
@@ -23,7 +26,20 @@ namespace GestaoEquipamentos.ModuloAutenticacao
                 return true;
             }
 
-            return false;
+            throw new AuthenticationException();
+        }
+
+        public List<UsuarioModel> ObterUsuarios()
+        {
+            return RepositorioUsuario.ObterUsuarios();
+
+        }
+    }
+    public class AuthenticationException : Exception
+    {
+        public AuthenticationException(string message = "Usuário ou senha inválidos!") : base(message)
+        {
+            
         }
     }
 }
