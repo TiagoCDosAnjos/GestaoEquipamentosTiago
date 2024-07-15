@@ -58,6 +58,7 @@
             editarToolStripMenuItem.Name = "editarToolStripMenuItem";
             editarToolStripMenuItem.Size = new Size(49, 20);
             editarToolStripMenuItem.Text = "Editar";
+            editarToolStripMenuItem.Click += editarToolStripMenuItem_Click;
             // 
             // removerToolStripMenuItem
             // 
@@ -75,10 +76,11 @@
             dataGridViewEquipamentos.MultiSelect = false;
             dataGridViewEquipamentos.Name = "dataGridViewEquipamentos";
             dataGridViewEquipamentos.ReadOnly = true;
+            dataGridViewEquipamentos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewEquipamentos.Size = new Size(800, 426);
             dataGridViewEquipamentos.TabIndex = 1;
             // 
-            // FormEquipamento
+            // TelaPrincipalForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -86,7 +88,7 @@
             Controls.Add(dataGridViewEquipamentos);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
-            Name = "FormEquipamento";
+            Name = "TelaPrincipalForm";
             Text = "Gestão Equipamentos";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();

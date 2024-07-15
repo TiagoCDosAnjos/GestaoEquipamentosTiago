@@ -188,7 +188,6 @@
             // 
             toolStripStatusLabelEquipamentos.Name = "toolStripStatusLabelEquipamentos";
             toolStripStatusLabelEquipamentos.Size = new Size(0, 17);
-            toolStripStatusLabelEquipamentos.Click += toolStripStatusLabel1_Click;
             // 
             // FormEquipamento
             // 

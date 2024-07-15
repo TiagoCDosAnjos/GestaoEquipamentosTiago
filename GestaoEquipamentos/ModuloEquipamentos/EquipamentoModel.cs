@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GestaoEquipamentos.ModuloCompartilhado;
+
 
 namespace GestaoEquipamentos.ModuloEquipamentos
 {
-    public class EquipamentoModel
+    public class EquipamentoModel : BaseModel
     {
         public int Numero { get; set; }
         public string Nome { get; set; }
@@ -16,7 +13,7 @@ namespace GestaoEquipamentos.ModuloEquipamentos
         public string Fabricante { get; set; }
         public DateTime DataUltimaManutencao { get; set; }
 
-        public string Validar()
+        public  override string Validar()
         { 
             string error = string.Empty;
 

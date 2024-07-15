@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace GestaoEquipamentos.ModuloEquipamentos
 {
-    internal class AdicionarEquipamentoException
+    public class AdicionarEquipamentoException : Exception
     {
+        private string resultado;
+
+        public AdicionarEquipamentoException(string resultado)
+        {
+            this.resultado = resultado;
+        }
     }
 }

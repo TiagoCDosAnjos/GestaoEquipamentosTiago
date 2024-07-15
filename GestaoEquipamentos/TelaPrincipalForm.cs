@@ -18,13 +18,28 @@ namespace GestaoEquipamentos.ModuloEquipamentos
             InitializeComponent();
             _equipamentosController = new EquipamentosController();
 
-            this.dataGridViewEquipamentos.DataSource = _equipamentosController.ObterEquipamentos();
+            //this.dataGridViewEquipamentos.DataSource = _equipamentosController.ObterEquipamentos();
+            AtualizarGrid();
         }
 
         private void adicionarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _equipamentosController.AdicionarEquipamento();
+            _equipamentosController.MostrarViewFormEquipamento();
+            AtualizarGrid();
+        }
+
+        private void AtualizarGrid()
+        {
+            this.dataGridViewEquipamentos.DataSource = null;
             this.dataGridViewEquipamentos.DataSource = _equipamentosController.ObterEquipamentos();
+        }
+
+        private void editarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var equipamentoSelecionado = dataGridViewEquipamentos.SelectedRows[0].DataBoundItem as EquipamentoModel;
+            //EquipamentoModel equipamentoModel = (EquipamentoModel)equipamentoSelecionado;
+
+            _equipamentosController.MostrarViewFormEquipamento(equipamentoSelecionado);
         }
     }
 }

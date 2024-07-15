@@ -12,38 +12,83 @@ namespace GestaoEquipamentos.ModuloEquipamentos
 {
     public partial class FormEquipamento : Form
     {
-       public EquipamentoModel EquipamentoModel { get; set; }
-        public FormEquipamento()
+        private EquipamentoModel _equipamentoModel { get; set; }
+        private IAdicionarEquipamento _adicionarEquipamento { get; set; }
+        private IAtualizarEquipamento _atualizarEquipamento { get; set; }
+
+        // private EquipamentoControllerBase _equipamentoControllerBase { get; set; }
+
+        // private bool _atualizacao = false;
+
+        public FormEquipamento(
+            IAdicionarEquipamento equipamentoControllerBase,
+            IAtualizarEquipamento atualizarEquipamento,
+            EquipamentoModel equipamentoModel)
         {
             InitializeComponent();
-            EquipamentoModel = new EquipamentoModel();
-        }
+            if (equipamentoModel != null)
+            {
+                _equipamentoModel = equipamentoModel;
 
-        private void toolStripStatusLabel1_Click(object sender, EventArgs e)
-        {
+                txtFabricante.Text = _equipamentoModel.Fabricante;
+                txtNome.Text = _equipamentoModel.Nome;
+                txtNumero.Text = _equipamentoModel.Numero.ToString();
+                txtNumeroDeSerie.Text = _equipamentoModel.NumeroSerie;
+                txtPreco.Text = _equipamentoModel.Preco.ToString();
+                dateTimePickerFabricacao.Value = _equipamentoModel.DataFabricacao;
+                dateTimePickerUltimaManutencao.Value = _equipamentoModel.DataUltimaManutencao;
+                btnAdicionar.Text = "Atualizar";
+                // _atualizacao = true;
+            }
+            else
+            {
+                _equipamentoModel = new EquipamentoModel();
+                btnAdicionar.Text = "Adicionar";
+            }
 
+
+            toolStripStatusLabelEquipamentos.Text = "";
+            _adicionarEquipamento = equipamentoControllerBase;
+            _atualizarEquipamento = atualizarEquipamento;
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            EquipamentoModel.Fabricante = txtFabricante.Text;
-            EquipamentoModel.Nome = txtNome.Text;
-            EquipamentoModel.Numero = int.Parse(txtNumero.Text);
-            EquipamentoModel.NumeroSerie = txtNumeroDeSerie.Text;
-            EquipamentoModel.Preco = decimal.Parse(txtPreco.Text);
-            EquipamentoModel.DataFabricacao = dateTimePickerFabricacao.Value;
-            EquipamentoModel.DataUltimaManutencao = dateTimePickerUltimaManutencao.Value;
-
-            string resultado = EquipamentoModel.Validar();
-
-            if(resultado.Length > 0)
+            try
             {
-                toolStripStatusLabelEquipamentos.Text = resultado;
-                return;
+                _equipamentoModel.Fabricante = txtFabricante.Text;
+                _equipamentoModel.Nome = txtNome.Text;
+                _equipamentoModel.Numero = int.Parse(txtNumero.Text);
+                _equipamentoModel.NumeroSerie = txtNumeroDeSerie.Text;
+                _equipamentoModel.Preco = decimal.Parse(txtPreco.Text);
+                _equipamentoModel.DataFabricacao = dateTimePickerFabricacao.Value;
+                _equipamentoModel.DataUltimaManutencao = dateTimePickerUltimaManutencao.Value;
+
+                if (_equipamentoModel.Indice == -1)
+                {
+                    _adicionarEquipamento.AdicionarEquipamento(_equipamentoModel);
+                }
+                else
+                {
+                    _atualizarEquipamento.AtualizarEquipamento(_equipamentoModel);
+                }
+                //se deu certo
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
-
-            this.Close();
-
+            catch (AdicionarEquipamentoException ax)
+            {
+                ExibirMensagemErro(ax.Message);
+            }
+            catch
+            {
+                ExibirMensagemErro("Preencha todos os campos corretamente!");
+            }
+        }
+        internal void ExibirMensagemErro(string resultado)
+        {
+            toolStripStatusLabelEquipamentos.Text = resultado;
+            this.DialogResult = DialogResult.Abort;
         }
     }
 }
