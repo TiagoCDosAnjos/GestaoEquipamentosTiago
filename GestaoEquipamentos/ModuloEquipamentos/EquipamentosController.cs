@@ -20,6 +20,7 @@ namespace GestaoEquipamentos.ModuloEquipamentos
     public abstract class BaseController
     {
         public RepositorioEquipamentos _repositorioEquipamentos { get; set; }
+        public UserControl UserControl { get; set; }
     }
 
 
@@ -29,20 +30,15 @@ namespace GestaoEquipamentos.ModuloEquipamentos
     //SOLID - Fazer código limpo
     //S - SRP - Simple responsability principle - (responsabilidade única)
 
-    //public abstract class EquipamentoControllerBase
-    //{
-    //    public abstract void AdicionarEquipamento(EquipamentoModel equipamento);
-    //}
-
     public class EquipamentosController :
         BaseController,
         IAdicionarEquipamento,
         IAtualizarEquipamento
     {
-       // public RepositorioEquipamentos _repositorioEquipamentos { get; set; }
         public EquipamentosController()
         {
             _repositorioEquipamentos = new RepositorioEquipamentos();
+            UserControl = new UserControlEquipamentos(this);
         }
 
         //Read

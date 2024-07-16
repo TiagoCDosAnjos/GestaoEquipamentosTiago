@@ -14,7 +14,7 @@ namespace GestaoEquipamentos
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             // Application.Run(new FormAutenticacaoView());
-            Application.Run(new TelaPrincipalForm());
+            Application.Run(new FormTelaPrincipal());
         }
     }
 }

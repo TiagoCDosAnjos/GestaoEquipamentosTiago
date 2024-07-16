@@ -12,7 +12,6 @@ namespace GestaoEquipamentos.ModuloEquipamentos
 
         public RepositorioEquipamentos()
         {
-            // _equipamentos = new List<EquipamentoModel>();
             Semear();
         }
 
@@ -83,5 +82,4 @@ namespace GestaoEquipamentos.ModuloEquipamentos
 
         }
     }
-
 }

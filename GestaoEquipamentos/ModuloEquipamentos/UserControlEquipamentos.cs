@@ -1,20 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
 namespace GestaoEquipamentos.ModuloEquipamentos
 {
     public partial class UserControlEquipamentos : UserControl
     {
-        public UserControlEquipamentos()
+        private EquipamentosController equipamentosController;
+        public UserControlEquipamentos(EquipamentosController equipamentosController)
         {
             InitializeComponent();
+            this.equipamentosController = equipamentosController;
+            AtualizarGrid();
+        }
+
+        private void AtualizarGrid()
+        {
+            this.dataGridViewEquipamentos.DataSource = null;
+            this.dataGridViewEquipamentos.DataSource = equipamentosController.ObterEquipamentos();
         }
     }
 }

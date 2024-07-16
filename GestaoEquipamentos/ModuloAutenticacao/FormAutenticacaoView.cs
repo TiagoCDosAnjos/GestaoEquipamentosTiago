@@ -34,7 +34,7 @@ namespace GestaoEquipamentos.ModuloAutenticacao
                 if (AutenticadorController.Autenticar(login, senha))
                 {
                     Hide();
-                    TelaPrincipalForm equipamentosForm = new TelaPrincipalForm();
+                    FormTelaPrincipal equipamentosForm = new FormTelaPrincipal();
                     equipamentosForm.ShowDialog();
                     Close();
                 }

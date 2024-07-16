@@ -28,10 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            dataGridViewEquipamentos = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewEquipamentos).BeginInit();
+            SuspendLayout();
+            // 
+            // dataGridViewEquipamentos
+            // 
+            dataGridViewEquipamentos.AllowUserToAddRows = false;
+            dataGridViewEquipamentos.AllowUserToDeleteRows = false;
+            dataGridViewEquipamentos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewEquipamentos.Dock = DockStyle.Fill;
+            dataGridViewEquipamentos.Location = new Point(0, 0);
+            dataGridViewEquipamentos.MultiSelect = false;
+            dataGridViewEquipamentos.Name = "dataGridViewEquipamentos";
+            dataGridViewEquipamentos.ReadOnly = true;
+            dataGridViewEquipamentos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewEquipamentos.Size = new Size(528, 310);
+            dataGridViewEquipamentos.TabIndex = 2;
+            // 
+            // UserControlEquipamentos
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(dataGridViewEquipamentos);
+            Name = "UserControlEquipamentos";
+            Size = new Size(528, 310);
+            ((System.ComponentModel.ISupportInitialize)dataGridViewEquipamentos).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private DataGridView dataGridViewEquipamentos;
     }
 }

@@ -16,10 +16,6 @@ namespace GestaoEquipamentos.ModuloEquipamentos
         private IAdicionarEquipamento _adicionarEquipamento { get; set; }
         private IAtualizarEquipamento _atualizarEquipamento { get; set; }
 
-        // private EquipamentoControllerBase _equipamentoControllerBase { get; set; }
-
-        // private bool _atualizacao = false;
-
         public FormEquipamento(
             IAdicionarEquipamento equipamentoControllerBase,
             IAtualizarEquipamento atualizarEquipamento,
@@ -38,14 +34,12 @@ namespace GestaoEquipamentos.ModuloEquipamentos
                 dateTimePickerFabricacao.Value = _equipamentoModel.DataFabricacao;
                 dateTimePickerUltimaManutencao.Value = _equipamentoModel.DataUltimaManutencao;
                 btnAdicionar.Text = "Atualizar";
-                // _atualizacao = true;
             }
             else
             {
                 _equipamentoModel = new EquipamentoModel();
                 btnAdicionar.Text = "Adicionar";
             }
-
 
             toolStripStatusLabelEquipamentos.Text = "";
             _adicionarEquipamento = equipamentoControllerBase;
