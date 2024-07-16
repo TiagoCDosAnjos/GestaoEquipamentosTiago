@@ -69,6 +69,7 @@ namespace GestaoEquipamentos.ModuloEquipamentos
         {
             equipamento.Indice = Indice();
             _equipamentos.Add(equipamento);
+            
         }
 
         public void AtualizarEquipamento(EquipamentoModel equipamento)
@@ -79,7 +80,10 @@ namespace GestaoEquipamentos.ModuloEquipamentos
         public void ExcluirEquipamento(EquipamentoModel equipamento)
         {
             _equipamentos.Remove(equipamento);
-
+            for (int i = 0; i < _equipamentos.Count; i++)
+            {
+                _equipamentos[i].Indice = i;
+            }
         }
     }
 }

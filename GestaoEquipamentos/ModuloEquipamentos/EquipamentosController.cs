@@ -75,6 +75,20 @@ namespace GestaoEquipamentos.ModuloEquipamentos
             }
             throw new AdicionarEquipamentoException(resultado);
         }
+
+        public void MostrarViewFormDeleteEquipamento(EquipamentoModel equipamentoModel)
+        {
+            var resultado = MessageBox.Show("Remover Equipamento",
+                $"Você confirma a remoção do equipamento {equipamentoModel}? ",
+                MessageBoxButtons.YesNoCancel);
+
+            if(DialogResult.Yes == resultado)
+            {
+                _repositorioEquipamentos.ExcluirEquipamento(equipamentoModel);
+
+            }
+        }
+
         public class AdicionarEquipamentoException : Exception
         {
             public AdicionarEquipamentoException(string message) : base(message)

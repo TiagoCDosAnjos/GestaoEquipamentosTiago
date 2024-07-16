@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GestaoEquipamentos.ModuloTipoDeEquipamento
 {
-    internal class TipoDeEquipamentoModel
+    public class TipoDeEquipamentoModel
     {
     }
 }

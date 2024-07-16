@@ -36,10 +36,6 @@
             splitContainer1 = new SplitContainer();
             flowLayoutPanel1 = new FlowLayoutPanel();
             buttonEquipamentos = new Button();
-            toolStrip = new ToolStrip();
-            toolStripButton1 = new ToolStripButton();
-            toolStripButton2 = new ToolStripButton();
-            toolStripButton3 = new ToolStripButton();
             panelListControl = new Panel();
             tableLayoutPanel1.SuspendLayout();
             menuStrip1.SuspendLayout();
@@ -48,7 +44,6 @@
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
-            toolStrip.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -101,7 +96,6 @@
             // 
             // splitContainer1.Panel2
             // 
-            splitContainer1.Panel2.Controls.Add(toolStrip);
             splitContainer1.Panel2.Controls.Add(panelListControl);
             splitContainer1.Size = new Size(794, 397);
             splitContainer1.SplitterDistance = 141;
@@ -126,42 +120,6 @@
             buttonEquipamentos.UseVisualStyleBackColor = true;
             buttonEquipamentos.Click += buttonEquipamentos_Click;
             // 
-            // toolStrip
-            // 
-            toolStrip.Items.AddRange(new ToolStripItem[] { toolStripButton1, toolStripButton2, toolStripButton3 });
-            toolStrip.Location = new Point(0, 0);
-            toolStrip.Name = "toolStrip";
-            toolStrip.Size = new Size(649, 25);
-            toolStrip.TabIndex = 1;
-            toolStrip.Text = "toolStrip1";
-            // 
-            // toolStripButton1
-            // 
-            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
-            toolStripButton1.ImageTransparentColor = Color.Magenta;
-            toolStripButton1.Name = "toolStripButton1";
-            toolStripButton1.Size = new Size(23, 22);
-            toolStripButton1.Text = "toolStripButton1";
-            // 
-            // toolStripButton2
-            // 
-            toolStripButton2.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton2.Image = (Image)resources.GetObject("toolStripButton2.Image");
-            toolStripButton2.ImageTransparentColor = Color.Magenta;
-            toolStripButton2.Name = "toolStripButton2";
-            toolStripButton2.Size = new Size(23, 22);
-            toolStripButton2.Text = "toolStripButton2";
-            // 
-            // toolStripButton3
-            // 
-            toolStripButton3.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton3.Image = (Image)resources.GetObject("toolStripButton3.Image");
-            toolStripButton3.ImageTransparentColor = Color.Magenta;
-            toolStripButton3.Name = "toolStripButton3";
-            toolStripButton3.Size = new Size(23, 22);
-            toolStripButton3.Text = "toolStripButton3";
-            // 
             // panelListControl
             // 
             panelListControl.Dock = DockStyle.Fill;
@@ -185,12 +143,9 @@
             menuStrip1.PerformLayout();
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
-            splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
-            toolStrip.ResumeLayout(false);
-            toolStrip.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -204,9 +159,5 @@
         private FlowLayoutPanel flowLayoutPanel1;
         private Button buttonEquipamentos;
         private Panel panelListControl;
-        private ToolStrip toolStrip;
-        private ToolStripButton toolStripButton1;
-        private ToolStripButton toolStripButton2;
-        private ToolStripButton toolStripButton3;
     }
 }
