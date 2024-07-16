@@ -1,12 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GestaoEquipamentos.ModuloCompartilhado
+﻿namespace GestaoEquipamentos.ModuloCompartilhado
 {
-    internal class BaseRepositorio
+    public abstract class BaseRepositorio<T>
     {
+        public List<T> ItensRepositorio { get; set; }
+
+        protected BaseRepositorio()
+        {
+            ItensRepositorio = new List<T>();
+            this.Semear();
+        }
+
+        protected int Indice()
+        {
+            return ItensRepositorio.Count;
+        }
+
+        public virtual void Adicionar(T objeto)
+        {
+            //objeto.Indice = Indice();
+            ItensRepositorio.Add(objeto);
+        }
+
+        public virtual void Excluir(T objeto)
+        {
+            ItensRepositorio.Remove(objeto);
+        }
+
+        public abstract void Semear();
     }
 }
+
+
+

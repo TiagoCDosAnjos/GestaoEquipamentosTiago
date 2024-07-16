@@ -22,6 +22,12 @@ namespace GestaoEquipamentos.ModuloEquipamentos
                  error += "Nome Inválido! Deve ter no minimo 6 caracteres";
             }
             return error;
+
+            if(string.IsNullOrEmpty(NumeroSerie))
+            {
+                error = "Número de Serie obrigatório";
+            }
+            return error;
         }
     }
 }

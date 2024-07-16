@@ -1,23 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GestaoEquipamentos.ModuloCompartilhado;
 
 namespace GestaoEquipamentos.ModuloEquipamentos
 {
-    public class RepositorioEquipamentos
+    public class RepositorioEquipamentos : BaseRepositorio<EquipamentoModel>
     {
-        private List<EquipamentoModel> _equipamentos { get; set; } = new List<EquipamentoModel>();
-
         public RepositorioEquipamentos()
         {
-            Semear();
+
         }
 
-        private void Semear()
+        public override void Semear()
         {
-            _equipamentos.Add(
+            ItensRepositorio.Add(
                 new EquipamentoModel()
                 {
                     DataFabricacao = new DateTime(2020, 12, 09),
@@ -30,7 +24,7 @@ namespace GestaoEquipamentos.ModuloEquipamentos
                     Indice = Indice()
                 });
 
-            _equipamentos.Add(new EquipamentoModel()
+            ItensRepositorio.Add(new EquipamentoModel()
             {
                 DataFabricacao = new DateTime(2021, 12, 09),
                 DataUltimaManutencao = new DateTime(2020, 12, 09),
@@ -42,7 +36,7 @@ namespace GestaoEquipamentos.ModuloEquipamentos
                 Indice = Indice()
             });
 
-            _equipamentos.Add(new EquipamentoModel()
+            ItensRepositorio.Add(new EquipamentoModel()
             {
                 DataFabricacao = new DateTime(2021, 12, 09),
                 DataUltimaManutencao = new DateTime(2020, 12, 09),
@@ -55,34 +49,23 @@ namespace GestaoEquipamentos.ModuloEquipamentos
             });
         }
 
-        private int Indice()
+        public List<EquipamentoModel> ObterTodos()
         {
-            return _equipamentos.Count;
+            return ItensRepositorio;
         }
 
-        public List<EquipamentoModel> ObterEquipamento()
-        {
-            return _equipamentos;
-        }
-
-        public void AdicionarEquipamento(EquipamentoModel equipamento)
-        {
-            equipamento.Indice = Indice();
-            _equipamentos.Add(equipamento);
-            
-        }
-
+      
         public void AtualizarEquipamento(EquipamentoModel equipamento)
         {
-            _equipamentos[equipamento.Indice] = equipamento;
+            ItensRepositorio[equipamento.Indice] = equipamento;
         }
 
-        public void ExcluirEquipamento(EquipamentoModel equipamento)
+        public override void Excluir(EquipamentoModel equipamento)
         {
-            _equipamentos.Remove(equipamento);
-            for (int i = 0; i < _equipamentos.Count; i++)
+            base.Excluir(equipamento);
+            for (int i = 0; i < ItensRepositorio.Count; i++)
             {
-                _equipamentos[i].Indice = i;
+                ItensRepositorio[i].Indice = i;
             }
         }
     }

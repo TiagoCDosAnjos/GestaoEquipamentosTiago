@@ -58,7 +58,7 @@
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 10.4444447F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 89.55556F));
-            tableLayoutPanel1.Size = new Size(800, 450);
+            tableLayoutPanel1.Size = new Size(1057, 505);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // menuStrip1
@@ -67,7 +67,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { menuToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 47);
+            menuStrip1.Size = new Size(1057, 52);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -75,7 +75,7 @@
             // 
             menuToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { equipamentosToolStripMenuItem });
             menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            menuToolStripMenuItem.Size = new Size(50, 43);
+            menuToolStripMenuItem.Size = new Size(50, 48);
             menuToolStripMenuItem.Text = "Menu";
             // 
             // equipamentosToolStripMenuItem
@@ -87,7 +87,7 @@
             // splitContainer1
             // 
             splitContainer1.Dock = DockStyle.Fill;
-            splitContainer1.Location = new Point(3, 50);
+            splitContainer1.Location = new Point(3, 55);
             splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -97,8 +97,8 @@
             // splitContainer1.Panel2
             // 
             splitContainer1.Panel2.Controls.Add(panelListControl);
-            splitContainer1.Size = new Size(794, 397);
-            splitContainer1.SplitterDistance = 141;
+            splitContainer1.Size = new Size(1051, 447);
+            splitContainer1.SplitterDistance = 186;
             splitContainer1.TabIndex = 1;
             // 
             // flowLayoutPanel1
@@ -125,14 +125,14 @@
             panelListControl.Dock = DockStyle.Fill;
             panelListControl.Location = new Point(0, 0);
             panelListControl.Name = "panelListControl";
-            panelListControl.Size = new Size(649, 397);
+            panelListControl.Size = new Size(861, 447);
             panelListControl.TabIndex = 0;
             // 
             // FormTelaPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1057, 505);
             Controls.Add(tableLayoutPanel1);
             MainMenuStrip = menuStrip1;
             Name = "FormTelaPrincipal";

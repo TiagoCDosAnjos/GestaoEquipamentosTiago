@@ -48,7 +48,7 @@
             dataGridViewEquipamentos.Name = "dataGridViewEquipamentos";
             dataGridViewEquipamentos.ReadOnly = true;
             dataGridViewEquipamentos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewEquipamentos.Size = new Size(688, 365);
+            dataGridViewEquipamentos.Size = new Size(945, 420);
             dataGridViewEquipamentos.TabIndex = 2;
             // 
             // menuStripEquipamentos
@@ -56,7 +56,7 @@
             menuStripEquipamentos.Items.AddRange(new ToolStripItem[] { adicionarToolStripMenuItem, editarToolStripMenuItem, removerToolStripMenuItem });
             menuStripEquipamentos.Location = new Point(0, 0);
             menuStripEquipamentos.Name = "menuStripEquipamentos";
-            menuStripEquipamentos.Size = new Size(688, 24);
+            menuStripEquipamentos.Size = new Size(945, 24);
             menuStripEquipamentos.TabIndex = 3;
             menuStripEquipamentos.Text = "menuStrip1";
             // 
@@ -88,7 +88,7 @@
             Controls.Add(dataGridViewEquipamentos);
             Controls.Add(menuStripEquipamentos);
             Name = "UserControlEquipamentos";
-            Size = new Size(688, 389);
+            Size = new Size(945, 444);
             ((System.ComponentModel.ISupportInitialize)dataGridViewEquipamentos).EndInit();
             menuStripEquipamentos.ResumeLayout(false);
             menuStripEquipamentos.PerformLayout();

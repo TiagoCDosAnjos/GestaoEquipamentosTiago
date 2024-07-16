@@ -1,4 +1,5 @@
-﻿using Microsoft.Win32;
+﻿using GestaoEquipamentos.ModuloCompartilhado;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,13 +18,6 @@ namespace GestaoEquipamentos.ModuloEquipamentos
         void AtualizarEquipamento(EquipamentoModel equipamento);
     }
 
-    public abstract class BaseController
-    {
-        public RepositorioEquipamentos _repositorioEquipamentos { get; set; }
-        public UserControl UserControl { get; set; }
-    }
-
-
     //Pedir interação do usuário
     //Tem o retorno do Model feito na interação do usuário
 
@@ -35,16 +29,18 @@ namespace GestaoEquipamentos.ModuloEquipamentos
         IAdicionarEquipamento,
         IAtualizarEquipamento
     {
+        private RepositorioEquipamentos _repositorioEquipamentos { get; set; }
+
         public EquipamentosController()
         {
             _repositorioEquipamentos = new RepositorioEquipamentos();
-            UserControl = new UserControlEquipamentos(this);
+            View = new UserControlEquipamentos(this);
         }
 
         //Read
         public List<EquipamentoModel> ObterEquipamentos()
         {
-            return _repositorioEquipamentos.ObterEquipamento();
+            return _repositorioEquipamentos.ObterTodos();
         }
 
         public void MostrarViewFormEquipamento(EquipamentoModel model = null)
@@ -54,12 +50,12 @@ namespace GestaoEquipamentos.ModuloEquipamentos
         }
 
         //C ou Registrar
-        public  void AdicionarEquipamento(EquipamentoModel equipamento)
+        public void AdicionarEquipamento(EquipamentoModel equipamento)
         {
             var resultado = equipamento.Validar();
             if (string.IsNullOrEmpty(resultado))
             {
-                _repositorioEquipamentos.AdicionarEquipamento(equipamento);
+                _repositorioEquipamentos.Adicionar(equipamento);
                 return;
             }
             throw new AdicionarEquipamentoException(resultado);
@@ -68,7 +64,7 @@ namespace GestaoEquipamentos.ModuloEquipamentos
         public void AtualizarEquipamento(EquipamentoModel equipamento)
         {
             var resultado = equipamento.Validar();
-            if(string.IsNullOrEmpty(resultado))
+            if (string.IsNullOrEmpty(resultado))
             {
                 _repositorioEquipamentos.AtualizarEquipamento(equipamento);
                 return;
@@ -78,13 +74,15 @@ namespace GestaoEquipamentos.ModuloEquipamentos
 
         public void MostrarViewFormDeleteEquipamento(EquipamentoModel equipamentoModel)
         {
-            var resultado = MessageBox.Show("Remover Equipamento",
-                $"Você confirma a remoção do equipamento {equipamentoModel}? ",
+            var resultado =
+                MessageBox.
+                Show("Remover Equipamento",
+                $"Você confirma a remoção do equipamento {equipamentoModel} ? ",
                 MessageBoxButtons.YesNoCancel);
 
-            if(DialogResult.Yes == resultado)
+            if (DialogResult.Yes == resultado)
             {
-                _repositorioEquipamentos.ExcluirEquipamento(equipamentoModel);
+                _repositorioEquipamentos.Excluir(equipamentoModel);
 
             }
         }
